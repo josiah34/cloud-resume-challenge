@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -22,7 +22,7 @@ jobs:
       - name: Check for changes in site folder
         id: check_changes
         run: |
-          changes=$(git status --porcelain)
+          changes=$(git diff --name-only HEAD^ HEAD)
           if [[ -n "$changes" ]]; then
             echo "::set-output name=changes::true"
           else
@@ -35,11 +35,11 @@ jobs:
             aws s3 sync ./site/ s3://jg-cloud-resume-bucket --delete
           else
             echo "No changes in the site folder. Skipping deployment."
-            exit 0
           fi
 
       - name: Create CloudFront invalidation
         if: steps.check_changes.outputs.changes == 'true'
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+
 
 
