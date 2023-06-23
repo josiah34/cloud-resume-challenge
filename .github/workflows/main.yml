@@ -35,9 +35,11 @@ jobs:
             aws s3 sync ./site/ s3://jg-cloud-resume-bucket --delete
           else
             echo "No changes in the site folder. Skipping deployment."
+            exit 0
           fi
 
       - name: Create CloudFront invalidation
         if: steps.check_changes.outputs.changes == 'true'
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+
 
