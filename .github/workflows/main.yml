@@ -21,16 +21,23 @@ jobs:
 
       - name: Check for changes in site folder
         id: check_changes
-        run: echo "::set-output name=changes::$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})"
+        run: |
+          changes=$(git status --porcelain)
+          if [[ -n "$changes" ]]; then
+            echo "::set-output name=changes::true"
+          else
+            echo "::set-output name=changes::false"
+          fi
 
       - name: Deploy static site to S3 bucket
         run: |
-          if [ -n "${{ steps.check_changes.outputs.changes }}" ]; then
+          if [[ "${{ steps.check_changes.outputs.changes }}" == "true" ]]; then
             aws s3 sync ./site/ s3://jg-cloud-resume-bucket --delete
+          else
+            echo "No changes in the site folder. Skipping deployment."
           fi
 
       - name: Create CloudFront invalidation
-        if: |
-          steps.check_changes.outputs.changes != '' &&
-          contains(steps.check_changes.outputs.changes, 'site/')
+        if: steps.check_changes.outputs.changes == 'true'
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+
