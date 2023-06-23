@@ -1,4 +1,4 @@
-- name: S3 Deploy
+ name: S3 Deploy
   # You may pin to the exact commit or the version.
   # uses: Reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467
   uses: Reggionick/s3-deploy@v4.0.0
