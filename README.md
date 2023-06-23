@@ -18,7 +18,7 @@ This is my attempt at the cloud resume project. This repo will contain all my si
 - Set bucket policy to allow access from my CloudFront distribution to my private S3 bucket
 - At this point I was able to view my resume site with the dummy template I uploaded earlier.
 - Used terraform script to upload my actual portfolio site.
-- Setup a Github Actions CICD pipeline to push my site code from this repository to my s3 bucket 
+- Setup a Github Actions CICD pipeline to push my site code from this repository to my s3 bucket. This CICD uploads changes in site folder to s3 bucket if detected and invalidates CloudFront Cache. Invalidation is required or the old site will be served from the cache for an additional 24 hours. 
 
 
 ## To Do
@@ -27,7 +27,6 @@ This is my attempt at the cloud resume project. This repo will contain all my si
 - Add Tests
 - Write AWS Certified Cloud Practioner Exam
 - Finish editing information and general improvments on website code.
-- Debug CloudFront invalidation error in Github Actions
 - Add an error page 
 
 
