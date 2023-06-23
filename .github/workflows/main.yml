@@ -1,5 +1,0 @@
-uses: reggionick/s3-deploy@v3
-with:
-    folder: build
-    bucket: ${{ secrets.S3_BUCKET }}
-    bucket-region: us-east-1
