@@ -25,10 +25,12 @@ jobs:
 
       - name: Deploy static site to S3 bucket
         run: |
-          if [[ "$(steps.check_changes.outputs.changes)" == *"site/"* ]]; then
+          if [ -n "${{ steps.check_changes.outputs.changes }}" ]; then
             aws s3 sync ./site/ s3://jg-cloud-resume-bucket --delete
           fi
 
       - name: Create CloudFront invalidation
-        if: steps.check_changes.outputs.changes != ''
+        if: |
+          steps.check_changes.outputs.changes != '' &&
+          contains(steps.check_changes.outputs.changes, 'site/')
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
