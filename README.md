@@ -2,6 +2,11 @@
 
 This is my attempt at the cloud resume project. This repo will contain all my site code as well as my Terraform scripts. I will do my best to document the entire process and the challenges I faced completing this. The main focus of this project is the cloud infrastructure. The challenge can be done in AWS, GCP or Azure, but I chose AWS. 
 
+
+## Architecture 
+
+
+
 <details>
 
 <summary>The Challenge</summary>
