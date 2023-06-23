@@ -1,27 +1,5 @@
- name: S3 Deploy
-  # You may pin to the exact commit or the version.
-  # uses: Reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467
-  uses: Reggionick/s3-deploy@v4.0.0
-  with:
-    # Directory to deploy
-    folder: 
-    # Name of AWS Bucket
-    bucket: 
-    # The destination bucket region
-    bucket-region: 
-    # AWS CloudFront distribution ID
-    dist-id: # optional
-    # AWS CloudFront invalidation path(s)
-    invalidation: # optional
-    # Removes files in S3 that are not available in the local copy of the directory
-    delete-removed: # optional
-    # Use this parameter to specify Cache-Control: no-cache, no-store, must-revalidate header
-    no-cache: # optional
-    # Upload files with private ACL, needed for S3 static website hosting
-    private: # optional
-    # Sets the Cache-Control: max-age=X header
-    cache: # optional
-    # Sets the Cache-Control header to immutable
-    immutable: # optional
-    # Allows for a comma delineated Regex String that matches files to include in the deployment
-    files-to-include: # optional
+uses: reggionick/s3-deploy@v3
+with:
+    folder: build
+    bucket: ${{ secrets.S3_BUCKET }}
+    bucket-region: us-east-1
