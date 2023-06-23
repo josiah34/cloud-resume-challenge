@@ -1,8 +1,36 @@
 # Cloud Resume Project 
 
-This is my attempt at the cloud resume project. This repo will contain all my site code as well as my Terraform scripts. I will do my best to document the entire process and the challenges I faced completing this. The main focus of this project is the cloud infrastructure. The challenge can be done in AWS, GCP or Azure, but I chose AWS. 
+This is my attempt at the cloud resume project. This repo will contain all my site code as well as my Terraform scripts. The main focus of this project is the cloud infrastructure. The challenge can be done in AWS, GCP or Azure, but I chose AWS. 
 
 [Link to Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/)
+
+[Link to my cloud resume site](https://resume.josiah-galloway.ca/)
+
+## Done 
+
+- Code a simple portfolio website using vanilla javascript, html and css.
+- I created an initial terraform script that sets up my s3 bucket for my static site. It also uploads a dummy template to confirm its working later on.
+- Configured my custom domain ``josiah-galloway.ca`` in Route53 and created my hosted zone.
+- Set my DNS servers from my hosted zone in my host nameservers to allow Route53 to perform routing.
+- Obtained SSL Certificate from AWS Certificate Manager so that I can have https.
+- Created CloudFront Distribution with my SSL certificate.
+- Set alternate domain in CloudFront as ``resume.josiah-galloway.ca``
+- Set bucket policy to allow access from my CloudFront distribution to my private S3 bucket
+- At this point I was able to view my resume site with the dummy template I uploaded earlier.
+- Used terraform script to upload my actual portfolio site.
+- Setup a Github Actions CICD pipeline to push my site code from this repository to my s3 bucket 
+
+
+## To Do
+
+- Use Terraformer to generate Terraform code so that I can destroy and redeploy my infrastructure as neeeded
+- Add Tests
+- Write AWS Certified Cloud Practioner Exam
+- Finish editing information and general improvments on website code.
+- Debug CloudFront invalidation error in Github Actions
+- Add an error page 
+
+
 
 
 ## Architecture 
@@ -22,7 +50,7 @@ This is my attempt at the cloud resume project. This repo will contain all my si
 - Terraform (Infrastructure as Code)
 - Lambda
 - DynamoDB
-- 
+- Github Actions (CICD)
 
 
 <details>
@@ -77,3 +105,5 @@ Set up GitHub Actions such that when you push an update to your Serverless Appli
 Create a second GitHub repository for your website code. Create GitHub Actions such that when you push new website code, the S3 bucket automatically gets updated. (You may need to invalidate your CloudFront cache in the code as well.) Important note: DO NOT commit AWS credentials to source control! Bad hats will find them and use them against you.
 
 </details>
+
+
