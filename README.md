@@ -6,6 +6,22 @@ This is my attempt at the cloud resume project. This repo will contain all my si
 ## Architecture 
 
 
+![Untitled Diagram drawio (1)](https://github.com/josiah34/cloud-resume-challenge/assets/25124463/a6483fbe-a483-4561-9a9f-469672143cb0)
+
+
+
+
+
+**Services and Tools**
+- S3 Bucket (Static Website)
+- CloudFront
+- Certificate Manager
+- Route 53
+- Terraform (Infrastructure as Code)
+- Lambda
+- DynamoDB
+- 
+
 
 <details>
 
