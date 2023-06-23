@@ -6,7 +6,7 @@ This is my attempt at the cloud resume project. This repo will contain all my si
 
 [Link to my cloud resume site](https://resume.josiah-galloway.ca/)
 
-## Done 
+## Completed 
 
 - Code a simple portfolio website using vanilla javascript, html and css.
 - I created an initial terraform script that sets up my s3 bucket for my static site. It also uploads a dummy template to confirm its working later on.
