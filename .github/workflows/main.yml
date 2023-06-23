@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -21,24 +21,18 @@ jobs:
 
       - name: Check for changes in site folder
         id: check_changes
-        run: |
-          changes=$(git diff --name-only HEAD^ HEAD)
-          if [[ -n "$changes" ]]; then
-            echo "::set-output name=changes::true"
-          else
-            echo "::set-output name=changes::false"
-          fi
+        run: echo "::set-output name=changes::$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }})"
 
       - name: Deploy static site to S3 bucket
         run: |
-          if [[ "${{ steps.check_changes.outputs.changes }}" == "true" ]]; then
+          if [ -n "${{ steps.check_changes.outputs.changes }}" ]; then
             aws s3 sync ./site/ s3://jg-cloud-resume-bucket --delete
-          else
-            echo "No changes in the site folder. Skipping deployment."
           fi
 
       - name: Create CloudFront invalidation
-        if: steps.check_changes.outputs.changes == 'true'
+        if: |
+          steps.check_changes.outputs.changes != '' &&
+          contains(steps.check_changes.outputs.changes, 'site/')
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
 
 
