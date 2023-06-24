@@ -30,6 +30,67 @@ This is my attempt at the cloud resume project. This repo will contain all my si
 - Add an error page 
 
 
+## IAC
+
+For the IAC I chose to use Terraform with a tool called Terraformer which imports infrastructure from your aws acccount and generates the necessary Terraform scripts.
+
+[Link to Terraformer Documentation](https://github.com/GoogleCloudPlatform/terraformer)
+
+
+**Install Terraformer(I use choco):**
+
+`choco install terraformer`                                                                  
+
+**Define aws in your terraform providers file:**
+
+<details>
+  <summary>Code for provider.tf</summary>
+
+```
+terraform {
+ required_providers {
+   aws = {
+     source  = "hashicorp/aws"
+     version = "~> 3.25"
+   }
+ }
+}
+ 
+provider "aws" {
+ profile = "default"
+}
+
+
+
+```
+</details>
+
+**Initialize Terraform in your directory with your provider file:**
+
+`terraform init`
+
+**Terraformer command for Cloudfront,Route53,IAM,ACM and Security Groups**
+
+`terraformer import aws --resources=route53,sg,iam,cloudfront,acm`
+
+NOTE: I didnt have to specify regions for these services since they're available globally. 
+
+
+**Terraformer command to import Lambda and DynamoDB:**
+
+
+`terraformer import aws --resources=lambda,dynamodb --regions=us-east-1 `
+
+NOTE: The region has to be correct for these services. Find what region that you created your resources in and edit the above command based on that. I created my S3 bucket in us-east-2 so I have to issue one more command.
+
+
+**Terraformer command to import S3:**
+
+`terraformer import aws --resources=s3 --regions=us-east-2`
+
+**Your directory will look like the below image after completion:**
+![IAC](https://github.com/josiah34/cloud-resume-challenge/assets/25124463/c036c5c1-b168-4890-a733-f048b52c7662)
+
 
 
 ## Architecture 
