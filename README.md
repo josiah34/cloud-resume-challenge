@@ -18,12 +18,11 @@ This is my attempt at the cloud resume project. This repo will contain all my si
 - Set bucket policy to allow access from my CloudFront distribution to my private S3 bucket
 - At this point I was able to view my resume site with the dummy template I uploaded earlier.
 - Used terraform script to upload my actual portfolio site.
-- Setup a Github Actions CICD pipeline to push my site code from this repository to my s3 bucket. This CICD uploads changes in site folder to s3 bucket if detected and invalidates CloudFront Cache. Invalidation is required or the old site will be served from the cache for an additional 24 hours. 
+- Setup a Github Actions CICD pipeline to push my site code from this repository to my s3 bucket. This CICD uploads changes in site folder to s3 bucket if detected and invalidates CloudFront Cache. Invalidation is required or the old site will be served from the cache for an additional 24 hours.
+- Generated my Terraform scripts for IAC using Terraformer 
 
 
 ## To Do
-
-- Use Terraformer to generate Terraform code so that I can destroy and redeploy my infrastructure as neeeded
 - Add Tests
 - Write AWS Certified Cloud Practioner Exam
 - Finish editing information and general improvments on website code.
