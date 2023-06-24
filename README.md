@@ -166,3 +166,7 @@ Create a second GitHub repository for your website code. Create GitHub Actions s
 </details>
 
 
+## References 
+- https://aws.plainenglish.io/host-resume-website-on-aws-using-amazon-s3-cloudfront-route53-9c7f9afad6f3
+- https://www.youtube.com/watch?v=e7vZe7qZFmE&list=PLEk97Q5Nj5oesA1WNk7DzaUpZUnCsQFVQ&ab_channel=OpenUpTheCloud
+
