@@ -1,419 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-    <!-- Basic Page Needs
-    ================================================== -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Cloud Resume</title>
-
-    <meta name="author" content="Josiah Galloway">
-    <meta name="keywords" content="portfolio">
-
-    <!-- Mobile Specific Metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
-    <!-- Favicon
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon.ico">
-
-    <!-- Stylesheets
-    ================================================== -->
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-      <!-- Add the Font Awesome CDN -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Add the Font Awesome Brands icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/brands.min.css" integrity="sha512-L+sMmtHht2t5phORf0xXFdTC0rSlML1XcraLTrABli/0MMMylsJi3XA23ReVQkZ7jLkOEIMicWGItyK4CAt2Xw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-</head>
-<body>
-
-    <header id="masthead" class="site-header" data-anchor-target=".hero" data-top="background: rgba(255,255,255,0); padding: 30px 0; box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0);" data-top-bottom="background: rgba(255,255,255,1); padding: 10px 0; box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.2);">
-        <nav id="primary-navigation" class="site-navigation">
-            <div class="container">
-                <div class="navbar-header page-scroll">
-
-                    <button type="button" class="navbar-toggle collapsed" data-target="#portfolio-perfect-collapse" aria-expanded="false" >
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    
-                    <a href="#hero" class="site-logo"><img src="assets/img/logo-color.png" alt="logo" height="100"></a>
-
-                </div><!-- /.navbar-header -->
-
-                <div class="main-menu" id="portfolio-perfect-collapse">
-
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li class="page-scroll"><a href="#hero">About</a></li>
-                        <li class="page-scroll"><a href="#bio">Bio</a></li>
-                        <li class="page-scroll"><a href="#skills">Skills</a></li>
-                        <li class="page-scroll"><a href="#education">Education</a></li>
-                        <li class="page-scroll"><a href="#portfolio">Projects</a></li>
-            
-            
-                        
-                    </ul><!-- /.navbar-nav -->
-
-                </div><!-- /.navbar-collapse -->
-
-            </div>
-        </nav><!-- /.primary-navigation -->
-    </header><!-- /#header -->
-
-    <div id="hero" class="hero">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-6">
-                    <h1>Josiah Galloway</h1>
-                    <div class="page-scroll">
-                        <p class="job-title">Automation Engineer Intern @ Guidewire Software | DevOps | Cloud | Cyber Security Enthusiast</a></p>
-                        
-                        <a href="#contact" class="btn btn-fill ">Contact Me</a>
-
-                        <div class="clearfix visible-xxs"></div>
-                        <a href="#portfolio" class="btn btn-border">Projects</a>
-                    </div>
-                </div>
-            
-                <div class="col-md-6 text-right">
-                  <div class="profile-picture">
-                    <img src="/assets/img/josiah.png" alt="Profile Picture" class="rounded-img smaller_img">
-                </div>
-                </div>
-
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Josiah Galloway</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Josiah Galloway</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </div><!-- /.hero -->
-
-    <main id="main" class="site-main">
-
-        <section id="bio" class="site-section section-about text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <h2>Bio</h2>
-                        <img src="assets/img/lines.svg" class="img-lines" alt="lines">
-                        <p>Hello, I'm Josiah Galloway, a recent graduate of George Brown College's Computer Programming and Analysis program in Toronto, Canada. I am a results-driven professional passionate about leveraging cloud technologies and DevOps practices to drive efficiency and innovation in software development.
-
-                          With a solid foundation in programming, I possess a deep understanding of cloud computing, DevOps methodologies, and continuous integration/continuous deployment (CI/CD) workflows. I thrive on optimizing processes, automating deployments, ensuring cybersecurity, and delivering streamlined cloud-based solutions.
-                          
-                          I am committed to staying abreast of the latest advancements in cloud technologies and best practices. Currently, I am working towards obtaining my AWS Certified Cloud Practitioner and CompTIA Security+ certifications, further enhancing my expertise in cloud computing and security.</p>
-                        <a href="https://www.dropbox.com/s/2iudr59q8lpqkdh/josiah-galloway-resume-rv-eu.pdf?dl=0" class="btn btn-fill" target="_blank" download>Download my cv</a>
-                    </div>
-                    
-                </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="John Doe profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Josiah Galloway</h1>
+        <p class="section__text__p2">Software Engineer</p>
+        <div class="counter-number">
+          <span class="counter-label">Site Views:</span>
+          <span class="counter-value"></span>
+        </div>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('https://www.dropbox.com/s/2iudr59q8lpqkdh/josiah-galloway-resume-rv-eu.pdf?dl=0')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/josiah-galloway/'"
+            target="_blank"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/josiah34'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/about-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>Current: Automation Engineer Intern @ Guidewire Software </p>
+              <br>
+              <p>Previous: DevOps Developer Intern @ IBM</p>
             </div>
-            <div class="counter-number">
-              <span class="counter-label">Site Views:</span>
-              <span class="counter-value"></span>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>George Brown College</p>
+              <p><i>Computer Programming and Analysis</i></p>
             </div>
-        </section><!-- /.secton-about -->
+          </div>
+          <div class="text-container">
+            <p>
+              Hello, I'm Josiah Galloway, a results-driven professional passionate about leveraging cloud technologies and DevOps practices to drive efficiency and innovation in software development.
 
-        <section class="site-section section-skills" id="skills">
-            <div class="container">
-                <div class="text-center">
-                    <h3>My Skills</h3>
-                    <img src="assets/img/lines.svg" class="img-lines" alt="lines">
-                </div>
-                
-                <div class="skill-badges">
-                    <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
-                    <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
-                    <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
-                    <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
-                    <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white">
-                    <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white">
-                    <img src="https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white">
-                    <img src="https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white">
-                    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
-                    <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
-                    <img src="https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white">
-                    <img src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white">
-                    <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white">
-                    <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white">
-                    <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white">
-                    <img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white">
-                    <img src="https://img.shields.io/badge/Ansible-000000?style=for-the-badge&logo=ansible&logoColor=white">
-                    <img src="https://img.shields.io/badge/Grafana-F2F4F9?style=for-the-badge&logo=grafana&logoColor=orange&labelColor=F2F4F9">
-                    <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white">
-
-
-
-                    
-                </div>
-            </div>
-        </section><!-- /.secton-skills -->
-
-       
-
-        <section id="education" class="site-section section-services overlay text-center">
-            <div class="container">
-                <div class="row">
-
-                    <div>
-                        <div class="row">
-                          <div class="col-md-12" id="education">
-                            <h3>Education & Certifications</h3>
-                            <img src="assets/img/lines.svg" class="img-lines" alt="lines">
-                            <ul class="education">
-                              <li>Advanced College Diploma in Computer Programming and Analysis (George Brown College)</li>
-                              <li>Hands-on Introduction to Linux Commands and Shell Scripting (Coursera) <a href="https://www.coursera.org/account/accomplishments/certificate/W3JN8PDNT8W5"><i class="fas fa-link"></i></a></li>
-                              <li>IBM Introduction to DevOps (Coursera) <a href="https://www.coursera.org/account/accomplishments/certificate/DEBMYYAR34UM"><i class="fas fa-link"></i></a></li>
-                              <li>CompTIA Pentest+ Learning Path(TryHackMe) <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OY68WF5WNL.png"><i class="fas fa-link"></i></a></li>
-                              <li>Pre Security Learning Path (TryHackMe)  <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-VNL83NZP4J.png"><i class="fas fa-link"></i></a></li>
-                              <li>Responsive Web Design (freeCodeCamp) <a href="https://freecodecamp.org/certification/fcceb6f44d1/responsive-web-design"><i class="fas fa-link"></i></a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <br>
-                    
-
-                </div>
-            </div>
-        </section><!-- /.secton-services -->
-
-        <section id="portfolio" class="site-section section-portfolio">
-            <div class="container">
-                <div class="text-center">
-                    <h3>Projects</h3>
-                    <img src="assets/img/lines.svg" class="img-lines" alt="lines">
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-6">
-                        <div class="portfolio-item">
-                            <img src="assets/img/youtube-downloader.jpg" class="img-res" alt="">
-                            <div class="portfolio-item-info">
-                                <h4>Python Youtube Video Downloader</h4>
-                                <a href="#" data-toggle="modal" data-target="#portfolioItem1"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                <a href="https://github.com/josiah34/python-youtube-downloader"><span class="glyphicon glyphicon-link"></span></a>
-                            </div><!-- /.portfolio-item-info -->
-                        </div><!-- /.portfolio-item -->
-                    </div>
-                    <div class="col-md-4 col-xs-6">
-                        <div class="portfolio-item">
-                            <img src="assets/img/get-weather.jpg" class="img-res" alt="">
-                            <div class="portfolio-item-info">
-                                <h4>Get Weather Bash Script</h4>
-                                <a href="#" data-toggle="modal" data-target="#portfolioItem2"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                <a href="https://github.com/josiah34/linux-shell-scripting"><span class="glyphicon glyphicon-link"></span></a>
-                            </div><!-- /.portfolio-item-info -->
-                        </div><!-- /.portfolio-item -->
-                    </div>
-                    <div class="col-md-4 col-xs-6">
-                        <div class="portfolio-item">
-                            <img src="assets/img/currency-converter.jpg" class="img-res" alt="">
-                            <div class="portfolio-item-info">
-                                <h4>Currency Converter</h4>
-                                <a href="#" data-toggle="modal" data-target="#portfolioItem3"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                <a href="https://josiah34.github.io/currency-exchange/"><span class="glyphicon glyphicon-link"></span></a>
-                            </div><!-- /.portfolio-item-info -->
-                        </div><!-- /.portfolio-item -->
-                    </div>
-                    <div class="col-md-4 col-xs-6">
-                        <div class="portfolio-item">
-                            <img src="assets/img/github-profile.jpg" class="img-res" alt="">
-                            <div class="portfolio-item-info">
-                                <h4>Github Profile Search</h4>
-                                <a href="#" data-toggle="modal" data-target="#portfolioItem4"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                <a href="https://josiah34.github.io/github-profiles/"><span class="glyphicon glyphicon-link"></span></a>
-                            </div><!-- /.portfolio-item-info -->
-                        </div><!-- /.portfolio-item -->
-                    </div>
-                    <div class="col-md-4 col-xs-6">
-                        <div class="portfolio-item">
-                            <img src="assets/img/birthday-album.jpg" class="img-res" alt="">
-                            <div class="portfolio-item-info">
-                                <h4>Billboard 200 #1 Birthday Album</h4>
-                                <a href="#" data-toggle="modal" data-target="#portfolioItem5"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                <a href="https://github.com/josiah34/Python-Billboard-Birthday-"><span class="glyphicon glyphicon-link"></span></a>
-                            </div><!-- /.portfolio-item-info -->
-                        </div><!-- /.portfolio-item -->
-                    </div>
-                    <div class="col-md-4 col-xs-6">
-                        <div class="portfolio-item">
-                            <img src="assets/img/cloud-resume.png" class="img-res" alt="">
-                            <div class="portfolio-item-info">
-                                <h4>Cloud Resume Challenge</h4>
-                                <a href="#" data-toggle="modal" data-target="#portfolioItem6"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                <a href="https://resume.josiah-galloway.ca/"><span class="glyphicon glyphicon-link"></span></a>
-                            </div><!-- /.portfolio-item-info -->
-                        </div><!-- /.portfolio-item -->
-                    </div>
-                </div>
-            </div>
-        </section><!-- /.secton-portfolio -->
-
-    </main>
-
-
-        <div class="container" id="contact">
-          <div class="row">
-            <div class="col-md-6">
-                <p><i>Josiah Galloway</i></p>
-              </div>
-            <div class="col-md-6 text-center">
-              <ul class="social-media-icons">
-                <li><a href="https://github.com/josiah34"><i class="fab fa-github"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/josiah-galloway/"><i class="fab fa-linkedin-in"></i></a></li>
-              </ul>
-            </div>
+              With a solid foundation in programming, I possess a deep understanding of cloud computing, DevOps methodologies, and continuous integration/continuous deployment (CI/CD) workflows. I thrive on optimizing processes, automating deployments, ensuring cybersecurity, and delivering streamlined cloud-based solutions.
+              
+              I am committed to staying abreast of the latest advancements in cloud technologies and best practices. Currently, I am working towards obtaining my AWS Certified Cloud Practitioner and CompTIA Security+ certifications, further enhancing my expertise in cloud computing and security.
+              
+              Feel free to reach out and let's connect!
+            </p>
           </div>
         </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Skills</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
 
+                  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="Javascript">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="python">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" alt="Git">
 
-    <!-- Modals -->
-    <div id="portfolioItem1" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
-            <img class="img-res" src="assets/img/youtube-downloader.jpg" alt="">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Shell Scripting">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white" alt="powershell">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white" alt="jenkins">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white" alt="kubernetes">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="SQL">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/Ansible-000000?style=for-the-badge&logo=ansible&logoColor=white" alt="Ansible">
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white">
+                </div>
+              </article>
+              
+            </div>
           </div>
-          <div class="modal-body">
-            <h4 class="modal-title">Python Youtube Downloader</h4>
-            <p>YouTube Downloader is a Python program that provides a simple graphical user interface to download YouTube videos using the PyTube library. It allows users to enter a YouTube video link, select the desired video resolution, and download it to their local system. The program displays the progress of the download process in real-time, with a progress bar and a percentage label. This project showcases my ability to work with Python libraries and create user-friendly graphical interfaces.</p>
-          </div>
-          <div class="modal-footer">
-            <a href="#" class="btn btn-fill">Visit Page</a>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
-    <div id="portfolioItem2" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
-            <img class="img-res" src="assets/img/get-weather.jpg" alt="">
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/recipe-generator.gif"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">OpenAI Recipe Generator</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/josiah34/openai_recipe_generator'"
+              >
+                Github
+              </button>
+            </div>
           </div>
-          <div class="modal-body">
-            <h4 class="modal-title">Get Weather Bash Script</h4>
-            <p>This script prompts the user for their OpenWeatherMap API key and the name of a city. It then retrieves the current weather conditions and temperature for that city from the OpenWeatherMap API using the provided API key. The script checks if the jq command-line tool is installed and exits with an error message if it is not.
-
-                The weather condition and temperature are extracted from the API response using jq and displayed to the user in the terminal. If the temperature is below 0 degrees Celsius, it is displayed in blue text; otherwise, it is displayed in yellow text.
-                
-                To use this script, simply download it and make it executable using chmod +x weather.sh. You will need to have jq and curl installed on your system. If jq is not installed, the script will exit with an error message.
-                
-                To run the script, use the command ./weather.sh in the terminal and follow the prompts.</p>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/birthday-album.jpg"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Python Billboard Birthday</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/josiah34/Python-Billboard-Birthday-'"
+              >
+                Github
+              </button>
+              <!-- <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button> -->
+            </div>
           </div>
-          <div class="modal-footer">
-            <a href="https://github.com/josiah34/linux-shell-scripting" class="btn btn-fill">Visit Page</a>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/cloud-resume.png"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Cloud Resume Challenge</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/josiah34/cloud-resume-challenge'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://resume.josiah-galloway.ca/'"
+              >
+                Live Demo
+              </button>
+            </div>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <div id="portfolioItem3" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
-            <img class="img-res" src="assets/img/currency-converter.jpg" alt="">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/get-weather.jpg"
+                alt="Project 4"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Get Weather Bash Script</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/josiah34/linux-shell-scripting'"
+              >
+                Github
+              </button>
+              <!-- <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Live Demo
+              </button> -->
+            </div>
           </div>
-          <div class="modal-body">
-            <h4 class="modal-title">Currency Converter</h4>
-            <p>This is a simple web application that uses Javascript, HTML, CSS and an exchange-rate api to allow the user to get the current exchange rate for different currencies</p>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/github-profile.jpg"
+                alt="Project 5"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Github Profiles</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/josiah34/github-profiles'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://josiah34.github.io/github-profiles/'"
+              >
+                Live Demo
+              </button>
+            </div>
           </div>
-          <div class="modal-footer">
-            <a href="https://josiah34.github.io/currency-exchange/" class="btn btn-fill">Visit Page</a>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/currency-converter.jpg"
+                alt="Project 6"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Currency Converter</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/josiah34/currency-exchange'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://josiah34.github.io/currency-exchange/'"
+              >
+                Live Demo
+              </button>
+            </div>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <div id="portfolioItem4" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
-            <img class="img-res" src="assets/img/github-profile.jpg" alt="">
-          </div>
-          <div class="modal-body">
-            <h4 class="modal-title">Github Profile Search</h4>
-            <p>Javascript, HTML, CSS and github api app that allows the user to search for a user on github and get the user and a collection of that users repositories</p>
-          </div>
-          <div class="modal-footer">
-            <a href="https://josiah34.github.io/github-profiles/" class="btn btn-fill">Visit Page</a>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <div id="portfolioItem5" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
-            <img class="img-res" src="assets/img/birthday-album.jpg" alt="">
-          </div>
-          <div class="modal-body">
-            <h4 class="modal-title">Billboard 200 #1 Birthday Album</h4>
-            <p>Using python and the rapidapi Billboard 200 I made a simple program that returns the number 1 album on the date of the users birthday</p>
-          </div>
-          <div class="modal-footer">
-            <a href="https://github.com/josiah34/Python-Billboard-Birthday-" class="btn btn-fill">Visit Page</a>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <div id="portfolioItem6" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
-            <img class="img-res" src="assets/img/capstone-.jpg" alt="">
-          </div>
-          <div class="modal-body">
-            <h4 class="modal-title">Cloud resume </h4>
-            <p>The Cloud Resume Project is a personal initiative to build a portfolio website hosted on the cloud. It focuses on showcasing cloud infrastructure skills and deploying a web application using AWS. The project includes setting up an S3 bucket, configuring a custom domain with Route 53, enabling HTTPS with an SSL certificate, creating a CloudFront distribution, and implementing a CI/CD pipeline using GitHub Actions.</p>
-          </div>
-          <div class="modal-footer">
-            <a href="https://github.com/josiah34/cloud-resume-challenge" class="btn btn-fill">Visit Github Repo</a>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="assets/js/skrollr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-progressbar/0.9.0/bootstrap-progressbar.min.js"></script>
-    <script src="assets/js/jquery.countTo.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/counter.js"></script>
-
-  
-</body>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:josiah.galloway37@gmail.com">Email</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com/in/josiah-galloway/">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2023 Josiah Galloway</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="counter.js"></script>
+  </body>
 </html>
