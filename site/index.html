@@ -1,599 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo">Josiah Galloway</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Josiah Galloway — Site Reliability Engineer. Cloud infrastructure, automation, and reliable delivery. Explore my experience and projects.">
+  <meta name="theme-color" content="#f6f5f0">
+  <title>Josiah Galloway | Site Reliability Engineer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mediaqueries.css">
+  <script src="script.js" defer></script>
+  <script src="counter.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#" aria-label="Josiah Galloway home"><span class="monogram">jg<span>.</span></span><span>JOSIAH GALLOWAY</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">＋</span></button>
+    <nav id="navigation" aria-label="Main navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> SITE RELIABILITY ENGINEER</p>
+        <h1 id="hero-title">Built to work.<br>Designed to <em>last.</em></h1>
+        <p class="hero-intro">I’m Josiah. I work at the intersection of cloud infrastructure, automation, and reliable software delivery.</p>
+        <div class="hero-actions"><a class="button" href="#projects">Explore my work <span aria-hidden="true">↗</span></a><a class="text-link" href="#experience">View experience <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-socials"><a href="https://github.com/josiah34" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/josiah-galloway/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://medium.com/@josiah.galloway" target="_blank" rel="noopener noreferrer">Writing ↗</a></div>
       </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Josiah Galloway</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="John Doe profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Josiah Galloway</h1>
-        <p class="section__text__p2">Software Engineer</p>
-        <div class="counter-number">
-          <span class="counter-label">Site Views:</span>
-          <span class="counter-value"></span>
-        </div>
-        <div class="btn-container">
-          <!-- <button
-            class="btn btn-color-2"
-            onclick="window.open('')"
-          >
-            Download CV
-          </button> -->
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div align="center">
-          <a style="margin-left: 10px;"  target="_blank" href="https://tryhackme.com/p/joe37">
-            <img src="https://tryhackme-badges.s3.amazonaws.com/joe37.png" alt="TryHackMe"></a>
-           </div>
-           
-           <div align="center">
-
-
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/josiah-galloway/'"
-            target="_blank"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/josiah34'"
-          />
-          <img
-          src="./assets/medium.png"
-          alt="My Medium profile"
-          class="icon"
-          onclick="location.href='https://medium.com/@josiah.galloway'"
-        />
-        </div>
+      <div class="hero-visual">
+        <div class="portrait-frame"><img src="assets/profile-pic.png" alt="Josiah Galloway" width="600" height="600"><span class="portrait-caption">THE HUMAN BEHIND THE SYSTEMS</span></div>
+        <div class="system-note"><span class="note-icon" aria-hidden="true">⌘</span><div><span class="tiny-label">MY APPROACH</span><p>Automate the routine.<br>Focus on what matters.</p></div><span class="note-cross" aria-hidden="true">＋</span></div>
+        <span class="visual-coordinate" aria-hidden="true">INFRASTRUCTURE / CODE / CURIOSITY</span>
       </div>
     </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-               <p>Current: Site Reliability Engineer @ Barclays</p>
-              <br />
-              <p>Previous: R&D Operations Engineer @ Valeo</p>
-              <br />
-              <p>Previous: Automation Engineer Intern @ Guidewire Software</p>
-              <br />
-              <p>Previous: DevOps Developer Intern @ IBM</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>George Brown College</p>
-              <p><i>Computer Programming and Analysis</i></p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>
-              Hello! 👋 I'm Josiah Galloway, a results-driven professional passionate about leveraging ☁️ cloud technologies and DevOps practices to drive efficiency 🚀 and innovation 💡 in software development
-
-              With a solid foundation in programming, I possess a deep understanding of cloud computing, DevOps methodologies, and continuous integration/continuous deployment (CI/CD) workflows. I thrive on optimizing processes, automating deployments, ensuring cybersecurity, and delivering streamlined cloud-based solutions.
-              
-              I am committed to staying abreast of the latest advancements in cloud technologies and best practices. Currently, I am working towards obtaining my AWS Certified Solutions Architect and CompTIA Security+ certifications, further enhancing my expertise in cloud computing and security.
-              
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
+    <div class="tool-strip" aria-label="Core technologies"><span class="tiny-label">TOOLS OF THE TRADE</span><span>AWS</span><span>Terraform</span><span>Kubernetes</span><span>Docker</span><span>Python</span><span>Linux</span></div>
+    <section id="about" class="section about-section">
+      <div class="section-heading"><p class="eyebrow">01 / ABOUT</p><h2>Good systems start<br>with thoughtful engineering.</h2></div>
+      <div class="about-copy"><p>I’m a Site Reliability Engineer with a background in DevOps, automation, and R&amp;D operations. I enjoy making infrastructure easier to manage and software easier to deliver.</p><p>My work brings together cloud technologies, infrastructure as code, and CI/CD. I’m driven by a simple idea: automate repetitive work so there’s more room to solve interesting problems.</p><div class="education"><span class="tiny-label">EDUCATION</span><strong>George Brown College</strong><span>Computer Programming and Analysis</span></div></div>
     </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Skills</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"
-                    alt="CSS"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"
-                    alt="Javascript"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"
-                    alt="python"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"
-                    alt="Git"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white"
-                    alt="Shell Scripting"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white"
-                    alt="powershell"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"
-                    alt="Linux"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"
-                    alt="Windows"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white"
-                    alt="jenkins"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white"
-                    alt="kubernetes"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white"
-                    alt="Docker"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white"
-                    alt="AWS"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"
-                    alt="MongoDB"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white"
-                    alt="SQL"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/Ansible-000000?style=for-the-badge&logo=ansible&logoColor=white"
-                    alt="Ansible"
-                  />
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <img
-                    src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white"
-                  />
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/recipe-generator.gif"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">
-              OpenAI Recipe Generator
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/josiah34/openai_recipe_generator'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/birthday-album.jpg"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">
-              AWS IAM Audit Script
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/josiah34/AWS_IAM_Audit_Script'"
-              >
-                Github
-              </button>
-              <!-- <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button> -->
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/cloud-resume.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">
-              Cloud Resume Challenge
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/josiah34/cloud-resume-challenge'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://resume.josiah-galloway.ca/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/get-weather.jpg"
-                alt="Project 4"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">
-              Get Weather Bash Script
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/josiah34/linux-shell-scripting'"
-              >
-                Github
-              </button>
-              <!-- <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button> -->
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/github-profile.jpg"
-                alt="Project 5"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Github Profiles</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/josiah34/github-profiles'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://josiah34.github.io/github-profiles/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/life-and-shift-gif.gif"
-                alt="Project 6"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">
-              AWS Lift and Shift Project
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/josiah34/aws-lift-shift'"
-              >
-                Github
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-
-            <h2 class="experience-sub-title project-title">
-              TryHackMe Ethical Hacking Labs
-            </h2>
-            <div class="btn-container">
-              <div align="center">
-                <a style="margin-left: 10px;"  target="_blank" href="https://tryhackme.com/p/joe37">
-                  <img src="https://tryhackme-badges.s3.amazonaws.com/joe37.png" alt="TryHackMe"></a>
-                 </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-            onclick="location.href='mailto:josiah.galloway37@gmail.com';"
-          />
-          <p><a href="mailto:josiah.galloway37@gmail.com">Email</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-            onclick="location.href='https://www.linkedin.com/in/josiah-galloway/'"
-          />
-          <p>
-            <a href="https://www.linkedin.com/in/josiah-galloway/">LinkedIn</a>
-          </p>
-        </div>
+    <section id="experience" class="section">
+      <div class="section-heading section-heading-row"><div><p class="eyebrow">02 / EXPERIENCE</p><h2>A foundation built in practice.</h2></div><span class="section-aside">FROM DEVELOPMENT TO RELIABILITY</span></div>
+      <div class="experience-list">
+        <article class="experience-row"><span class="role-label current"><span class="status-dot"></span> CURRENT</span><div><h3>Site Reliability Engineer</h3></div><span class="company">Barclays</span></article>
+        <article class="experience-row"><span class="role-label">PREVIOUS</span><div><h3>R&amp;D Operations Engineer</h3></div><span class="company">Valeo</span></article>
+        <article class="experience-row"><span class="role-label">INTERNSHIP</span><div><h3>Automation Engineer Intern</h3></div><span class="company">Guidewire Software</span></article>
+        <article class="experience-row"><span class="role-label">INTERNSHIP</span><div><h3>DevOps Developer Intern</h3></div><span class="company">IBM</span></article>
       </div>
     </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2025 Josiah Galloway</p>
-    </footer>
-    <script src="script.js"></script>
-    <script src="counter.js"></script>
-  </body>
+    <section id="projects" class="section projects-section">
+      <div class="section-heading section-heading-row"><div><p class="eyebrow">03 / SELECTED WORK</p><h2>Less theory. More building.</h2></div><a class="text-link" href="https://github.com/josiah34" target="_blank" rel="noopener noreferrer">All repositories ↗</a></div>
+      <article class="featured-project">
+        <div class="project-copy"><span class="tiny-label">FEATURED PROJECT / 01</span><h3>This resume.<br>Real cloud infrastructure.</h3><p>A static site backed by AWS: private S3 hosting, CloudFront delivery, Route 53 DNS, and a serverless visitor counter. Infrastructure managed with Terraform, with deployment through GitHub Actions.</p><div class="tags"><span>AWS</span><span>Terraform</span><span>GitHub Actions</span></div><a class="text-link" href="https://github.com/josiah34/cloud-resume-challenge" target="_blank" rel="noopener noreferrer">Explore the source ↗</a></div>
+        <div class="architecture" aria-label="Site architecture: visitors connect through Route 53 and CloudFront to private S3. The visitor counter uses Lambda and DynamoDB."><div class="architecture-top"><span class="status-dot"></span> CLOUD RESUME / ARCHITECTURE</div><div class="architecture-flow"><div><span>01</span><strong>Route 53</strong><small>DNS resolution</small></div><span class="flow-arrow" aria-hidden="true">↓</span><div><span>02</span><strong>CloudFront</strong><small>HTTPS &amp; edge delivery</small></div><span class="flow-arrow" aria-hidden="true">↓</span><div><span>03</span><strong>Private S3</strong><small>Static site assets</small></div></div><div class="architecture-bottom"><span>λ Lambda → DynamoDB</span><span>Visitor counter</span></div></div>
+      </article>
+      <div class="project-grid">
+        <a class="project-card" href="https://github.com/josiah34/AWS_IAM_Audit_Script" target="_blank" rel="noopener noreferrer"><div class="card-top"><span class="tiny-label">02 / SECURITY</span><span aria-hidden="true">↗</span></div><h3>AWS IAM Audit</h3><p>An audit script for exploring AWS identity and access management.</p><div class="tags"><span>AWS</span><span>IAM</span></div></a>
+        <a class="project-card" href="https://github.com/josiah34/aws-lift-shift" target="_blank" rel="noopener noreferrer"><div class="card-top"><span class="tiny-label">03 / CLOUD</span><span aria-hidden="true">↗</span></div><h3>AWS Lift &amp; Shift</h3><p>A hands-on project exploring application migration to AWS.</p><div class="tags"><span>AWS</span><span>Migration</span></div></a>
+        <a class="project-card" href="https://github.com/josiah34/linux-shell-scripting" target="_blank" rel="noopener noreferrer"><div class="card-top"><span class="tiny-label">04 / AUTOMATION</span><span aria-hidden="true">↗</span></div><h3>Weather from the terminal</h3><p>A Bash script that brings weather information to the command line.</p><div class="tags"><span>Bash</span><span>Linux</span></div></a>
+      </div>
+      <details class="more-projects"><summary>More projects &amp; learning <span aria-hidden="true">＋</span></summary><div><a href="https://github.com/josiah34/openai_recipe_generator" target="_blank" rel="noopener noreferrer">OpenAI Recipe Generator ↗</a><a href="https://josiah34.github.io/github-profiles/" target="_blank" rel="noopener noreferrer">GitHub Profiles ↗</a><a href="https://tryhackme.com/p/joe37" target="_blank" rel="noopener noreferrer">TryHackMe security labs ↗</a></div></details>
+    </section>
+    <section id="skills" class="section skills-section"><div class="section-heading"><p class="eyebrow">04 / TOOLKIT</p><h2>The right tool.<br>A considered approach.</h2></div><div class="skills-list"><div><h3>Cloud &amp; infrastructure</h3><p>AWS · Terraform · Ansible · Kubernetes · Docker</p></div><div><h3>Automation &amp; delivery</h3><p>Python · Bash · PowerShell · Jenkins · Git · GitHub Actions</p></div><div><h3>Systems &amp; development</h3><p>Linux · Windows · JavaScript · HTML · CSS · MySQL · MongoDB</p></div></div></section>
+    <section id="contact" class="contact-section"><p class="eyebrow">05 / GET IN TOUCH</p><h2>Let’s build something<br><em>dependable.</em></h2><div class="contact-bottom"><a class="button" href="mailto:josiah.galloway37@gmail.com">Say hello <span aria-hidden="true">↗</span></a><a class="contact-email" href="mailto:josiah.galloway37@gmail.com">josiah.galloway37@gmail.com</a><a class="text-link" href="https://www.linkedin.com/in/josiah-galloway/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></div></section>
+  </main>
+  <footer><span>© <span id="year">2026</span> Josiah Galloway</span><span class="footer-note">Built with care. Hosted on AWS.</span><span class="counter-number"><span class="counter-value">—</span> site visits</span><a href="#">Back to top ↑</a></footer>
+</body>
 </html>
