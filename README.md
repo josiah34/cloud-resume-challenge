@@ -1,172 +1,172 @@
-# Cloud Resume Project 
+# Cloud Resume Challenge
 
-This is my attempt at the cloud resume project. This repo will contain all my site code as well as my Terraform scripts. The main focus of this project is the cloud infrastructure. The challenge can be done in AWS, GCP or Azure, but I chose AWS. 
+My personal resume and portfolio website, built as part of the [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/). I chose AWS for this project, with the main focus on the infrastructure behind the site: hosting, DNS, HTTPS, a serverless visitor counter, infrastructure as code, and automated deployment.
 
-[Link to Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws/)
+The frontend uses vanilla HTML, CSS, and JavaScript to showcase my experience, skills, and projects.
 
-[Link to my cloud resume site](https://resume.josiah-galloway.ca/)
+**[View the live site →](https://resume.josiah-galloway.ca/)**
 
-## Completed 
+## Architecture
 
-- Code a simple portfolio website using vanilla javascript, html and css.
-- I created an initial terraform script that sets up my s3 bucket for my static site. It also uploads a dummy template to confirm its working later on.
-- Configured my custom domain ``josiah-galloway.ca`` in Route53 and created my hosted zone.
-- Set my DNS servers from my hosted zone in my host nameservers to allow Route53 to perform routing.
-- Obtained SSL Certificate from AWS Certificate Manager so that I can have https.
-- Created CloudFront Distribution with my SSL certificate.
-- Set alternate domain in CloudFront as ``resume.josiah-galloway.ca``
-- Set bucket policy to allow access from my CloudFront distribution to my private S3 bucket
-- At this point I was able to view my resume site with the dummy template I uploaded earlier.
-- Used terraform script to upload my actual portfolio site.
-- Setup a Github Actions CICD pipeline to push my site code from this repository to my s3 bucket. This CICD uploads changes in site folder to s3 bucket if detected and invalidates CloudFront Cache. Invalidation is required or the old site will be served from the cache for an additional 24 hours.
-- Generated my Terraform scripts for IAC using Terraformer 
+![AWS architecture diagram for the Cloud Resume project](https://github.com/josiah34/cloud-resume-challenge/assets/25124463/a6483fbe-a483-4561-9a9f-469672143cb0)
 
+### Website delivery
 
-## To Do
-- Add Tests
-- Write AWS Certified Cloud Practioner Exam
-- Finish editing information and general improvments on website code.
-- Add an error page 
+Route 53 manages DNS for `josiah-galloway.ca`, with the resume available at `resume.josiah-galloway.ca`. CloudFront serves the static files from a private S3 bucket over HTTPS, using a certificate from AWS Certificate Manager. The bucket policy allows CloudFront to access the site assets.
 
+### Visitor counter
 
-## IAC
+The browser calls a Lambda function URL, with Lambda and DynamoDB providing the visitor-counter backend. The frontend validates the returned count before displaying it. If the request fails or times out, the page displays a dash so the rest of the site remains usable.
 
-For the IAC I chose to use Terraform with a tool called Terraformer which imports infrastructure from your aws acccount and generates the necessary Terraform scripts.
+### Services and tools
 
-[Link to Terraformer Documentation](https://github.com/GoogleCloudPlatform/terraformer)
+| Service or tool | Role in the project |
+| --- | --- |
+| Amazon S3 | Stores the static website files |
+| Amazon CloudFront | Delivers the site and provides the HTTPS entry point |
+| Amazon Route 53 | Manages DNS for the custom domain |
+| AWS Certificate Manager | Provides the TLS certificate |
+| AWS Lambda | Handles visitor-counter requests |
+| Amazon DynamoDB | Stores the visitor count |
+| Terraform | Defines and manages infrastructure |
+| Terraformer | Imports existing AWS resources into Terraform configuration |
+| GitHub Actions | Deploys site files and invalidates the CloudFront cache |
+| HTML, CSS, and JavaScript | Provide the portfolio layout and browser interactions |
 
+## Implementation journey
 
-**Install Terraformer(I use choco):**
+### 1. Build the frontend
 
-`choco install terraformer`                                                                  
+I created the portfolio using HTML, CSS, and JavaScript. The current site includes a responsive layout, mobile navigation, experience and skills sections, project cards, and a visitor counter.
 
-**Define aws in your terraform providers file:**
+### 2. Set up static hosting
 
-<details>
-  <summary>Code for provider.tf</summary>
+I started with a Terraform configuration that created the S3 bucket and uploaded a placeholder page. This gave me a simple way to confirm that the hosting infrastructure worked before uploading the full portfolio.
 
+### 3. Configure the domain and HTTPS
+
+I created a Route 53 hosted zone for `josiah-galloway.ca` and updated the domain's nameservers to use it. I then obtained an ACM certificate, created a CloudFront distribution, and configured `resume.josiah-galloway.ca` as an alternate domain name.
+
+With the S3 bucket policy allowing access from CloudFront, I verified the placeholder page through the custom domain and then uploaded the actual portfolio using Terraform.
+
+### 4. Automate frontend deployment
+
+I added a GitHub Actions workflow to sync the website files to S3 on pushes to `main`. The workflow also invalidates the CloudFront cache when site files change, allowing updated content to be served without waiting for the cached version to expire.
+
+### 5. Capture infrastructure with Terraformer
+
+I used Terraformer to import existing AWS resources and generate Terraform configuration. This included the hosting services as well as Lambda and DynamoDB resources for the visitor counter.
+
+## Infrastructure as code
+
+Terraform and Terraformer were part of the original infrastructure workflow. The commands below preserve that implementation history; the Terraform configuration and visitor-counter backend source are not present in this checkout.
+
+### Original Terraformer setup
+
+I installed Terraformer using Chocolatey:
+
+```sh
+choco install terraformer
 ```
+
+The original `provider.tf` used the AWS provider and my local `default` AWS profile:
+
+```hcl
 terraform {
- required_providers {
-   aws = {
-     source  = "hashicorp/aws"
-     version = "~> 3.25"
-   }
- }
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.25"
+    }
+  }
 }
- 
+
 provider "aws" {
- profile = "default"
+  profile = "default"
 }
-
-
-
 ```
-</details>
 
-**Initialize Terraform in your directory with your provider file:**
+The provider constraint above records the version used for the original setup.
 
-`terraform init`
+I initialized the working directory with:
 
-**Terraformer command for Cloudfront,Route53,IAM,ACM and Security Groups**
+```sh
+terraform init
+```
 
-`terraformer import aws --resources=route53,sg,iam,cloudfront,acm`
+### Import existing resources
 
-NOTE: I didnt have to specify regions for these services since they're available globally. 
+My original import command for Route 53, security groups, IAM, CloudFront, and ACM was:
 
+```sh
+terraformer import aws --resources=route53,sg,iam,cloudfront,acm
+```
 
-**Terraformer command to import Lambda and DynamoDB:**
+This command included both global and regional services. Regional resources such as security groups and ACM certificates need the appropriate region selected when reproducing the import.
 
+I imported Lambda and DynamoDB from `us-east-1`:
 
-`terraformer import aws --resources=lambda,dynamodb --regions=us-east-1 `
+```sh
+terraformer import aws --resources=lambda,dynamodb --regions=us-east-1
+```
 
-NOTE: The region has to be correct for these services. Find what region that you created your resources in and edit the above command based on that. I created my S3 bucket in us-east-2 so I have to issue one more command.
+The site's S3 bucket was created in `us-east-2`, so I imported it separately:
 
+```sh
+terraformer import aws --resources=s3 --regions=us-east-2
+```
 
-**Terraformer command to import S3:**
+The generated directory structure from the original import:
 
-`terraformer import aws --resources=s3 --regions=us-east-2`
+![Terraformer-generated infrastructure directory structure](https://github.com/josiah34/cloud-resume-challenge/assets/25124463/c036c5c1-b168-4890-a733-f048b52c7662)
 
-**Your directory will look like the below image after completion:**
-![IAC](https://github.com/josiah34/cloud-resume-challenge/assets/25124463/c036c5c1-b168-4890-a733-f048b52c7662)
+## CI/CD pipeline
 
+The deployment workflow lives in [`.github/workflows/main.yml`](.github/workflows/main.yml) and runs on pushes to `main`.
 
+1. Check out the repository.
+2. Configure AWS credentials from GitHub Actions secrets, using `us-east-2`.
+3. Detect changed files between the previous and current commit.
+4. Sync `site/` to `s3://jg-cloud-resume-bucket` when changes are detected.
+5. Invalidate the CloudFront cache when those changes include files under `site/`.
 
-## Architecture 
+The workflow requires these repository secrets:
 
+| Secret | Purpose |
+| --- | --- |
+| `AWS_ACCESS_KEY_ID` | Access key for the deployment identity |
+| `AWS_SECRET_ACCESS_KEY` | Secret key for the deployment identity |
+| `DISTRIBUTION_ID` | CloudFront distribution to invalidate |
 
-![Untitled Diagram drawio (1)](https://github.com/josiah34/cloud-resume-challenge/assets/25124463/a6483fbe-a483-4561-9a9f-469672143cb0)
+The S3 sync uses `--delete`, so removing a file from `site/` also removes it from the destination bucket on deployment. The current change check covers the whole repository, so documentation-only changes can also trigger an S3 sync; cache invalidation is restricted to changes involving `site/`.
 
+## Repository structure
 
+```text
+.github/
+  workflows/
+    main.yml               # Website deployment to S3 and CloudFront invalidation
+site/
+  index.html               # Portfolio content and page structure
+  style.css                # Main styles
+  mediaqueries.css         # Responsive styles
+  script.js                # Mobile navigation and footer year
+  counter.js               # Visitor-counter request and display
+  assets/                  # Portfolio images and static assets
+README.md                  # Project overview and implementation notes
+```
 
+The frontend has no build step or package dependencies. Content changes are made in `site/index.html`, styling lives in the CSS files, and browser behavior lives in the JavaScript files.
 
+## Next steps
 
-**Services and Tools**
-- S3 Bucket (Static Website)
-- CloudFront
-- Certificate Manager
-- Route 53
-- Terraform (Infrastructure as Code)
-- Lambda
-- DynamoDB
-- Github Actions (CICD)
+- Add automated tests for the website and visitor-counter backend.
+- Add a custom error page.
+- Continue improving the portfolio content, accessibility, and responsive design.
 
+## References
 
-<details>
-
-<summary>The Challenge</summary>
-
-1. Certification
-Your resume needs to have the AWS Cloud Practitioner certification on it. This is an introductory certification that orients you on the industry-leading AWS cloud – if you have a more advanced AWS cert, that’s fine but not expected. You can sit this exam online for $100 USD. A Cloud Guru offers exam prep resources.
-
-2. HTML
-Your resume needs to be written in HTML. Not a Word doc, not a PDF. Here is an example of what I mean.
-
-3. CSS
-Your resume needs to be styled with CSS. No worries if you’re not a designer – neither am I. It doesn’t have to be fancy. But we need to see something other than raw HTML when we open the webpage.
-
-4. Static Website
-Your HTML resume should be deployed online as an Amazon S3 static website. Services like Netlify and GitHub Pages are great and I would normally recommend them for personal static site deployments, but they make things a little too abstract for our purposes here. Use S3.
-
-5. HTTPS
-The S3 website URL should use HTTPS for security. You will need to use Amazon CloudFront to help with this.
-
-6. DNS
-Point a custom DNS domain name to the CloudFront distribution, so your resume can be accessed at something like my-c00l-resume-website.com. You can use Amazon Route 53 or any other DNS provider for this. A domain name usually costs about ten bucks to register.
-
-7. Javascript
-Your resume webpage should include a visitor counter that displays how many people have accessed the site. You will need to write a bit of Javascript to make this happen. Here is a helpful tutorial to get you started in the right direction.
-
-8. Database
-The visitor counter will need to retrieve and update its count in a database somewhere. I suggest you use Amazon’s DynamoDB for this. (Use on-demand pricing for the database and you’ll pay essentially nothing, unless you store or retrieve much more data than this project requires.) Here is a great free course on DynamoDB.
-
-9. API
-Do not communicate directly with DynamoDB from your Javascript code. Instead, you will need to create an API that accepts requests from your web app and communicates with the database. I suggest using AWS’s API Gateway and Lambda services for this. They will be free or close to free for what we are doing.
-
-10. Python
-You will need to write a bit of code in the Lambda function; you could use more Javascript, but it would be better for our purposes to explore Python – a common language used in back-end programs and scripts – and its boto3 library for AWS. Here is a good, free Python tutorial.
-
-11. Tests
-You should also include some tests for your Python code. Here are some resources on writing good Python tests.
-
-12. Infrastructure as Code
-You should not be configuring your API resources – the DynamoDB table, the API Gateway, the Lambda function – manually, by clicking around in the AWS console. Instead, define them in an AWS Serverless Application Model (SAM) template and deploy them using the AWS SAM CLI. This is called “infrastructure as code” or IaC. It saves you time in the long run.
-
-Note: A more broadly applicable and commonly-used IaC tool in the industry is Terraform. It’s a little less straightforward to use than SAM for an AWS serverless API, but many people prefer to use it for their project anyway. If you want to use Terraform instead of SAM, follow this guide.
-
-13. Source Control
-You do not want to be updating either your back-end API or your front-end website by making calls from your laptop, though. You want them to update automatically whenever you make a change to the code. (This is called continuous integration and deployment, or CI/CD.) Create a GitHub repository for your backend code.
-
-14. CI/CD (Back end)
-Set up GitHub Actions such that when you push an update to your Serverless Application Model template or Python code, your Python tests get run. If the tests pass, the SAM application should get packaged and deployed to AWS.
-
-15. CI/CD (Front end)
-Create a second GitHub repository for your website code. Create GitHub Actions such that when you push new website code, the S3 bucket automatically gets updated. (You may need to invalidate your CloudFront cache in the code as well.) Important note: DO NOT commit AWS credentials to source control! Bad hats will find them and use them against you.
-
-</details>
-
-
-## References 
-- https://aws.plainenglish.io/host-resume-website-on-aws-using-amazon-s3-cloudfront-route53-9c7f9afad6f3
-- https://www.youtube.com/watch?v=e7vZe7qZFmE&list=PLEk97Q5Nj5oesA1WNk7DzaUpZUnCsQFVQ&ab_channel=OpenUpTheCloud
-
+- [Cloud Resume Challenge — AWS](https://cloudresumechallenge.dev/docs/the-challenge/aws/)
+- [Terraformer documentation](https://github.com/GoogleCloudPlatform/terraformer)
+- [Original hosting tutorial](https://aws.plainenglish.io/host-resume-website-on-aws-using-amazon-s3-cloudfront-route53-9c7f9afad6f3)
+- [Video walkthrough used during the project](https://www.youtube.com/watch?v=e7vZe7qZFmE&list=PLEk97Q5Nj5oesA1WNk7DzaUpZUnCsQFVQ&ab_channel=OpenUpTheCloud)
