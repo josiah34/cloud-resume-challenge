@@ -128,7 +128,7 @@ The deployment workflow lives in [`.github/workflows/main.yml`](.github/workflow
 2. Configure AWS credentials from GitHub Actions secrets, using `us-east-2`.
 3. Detect changed files between the previous and current commit.
 4. Sync `site/` to `s3://jg-cloud-resume-bucket` when changes are detected.
-5. Invalidate the CloudFront cache when those changes include files under `site/`.
+5. Invalidate the CloudFront cache when the captured change output includes `site/`.
 
 The workflow requires these repository secrets:
 
@@ -138,7 +138,13 @@ The workflow requires these repository secrets:
 | `AWS_SECRET_ACCESS_KEY` | Secret key for the deployment identity |
 | `DISTRIBUTION_ID` | CloudFront distribution to invalidate |
 
-The S3 sync uses `--delete`, so removing a file from `site/` also removes it from the destination bucket on deployment. The current change check covers the whole repository, so documentation-only changes can also trigger an S3 sync; cache invalidation is restricted to changes involving `site/`.
+The S3 sync uses `--delete`, so removing a file from `site/` also removes it from the destination bucket on deployment. The current change check covers the whole repository, so documentation-only changes can also trigger an S3 sync.
+
+### Current change-detection limitation
+
+The workflow passes the changed-file list through a single-line `set-output` command. When a push changes multiple files, only the first filename is captured in the step output. For example, a push changing both `README.md` and `site/index.html` captures `README.md`, uploads the site, and skips CloudFront invalidation because the output does not contain `site/`.
+
+An index-only commit captures `site/index.html` and triggers the invalidation step. A successful workflow run with invalidation skipped can leave CloudFront serving the previous cached version even after the updated files reach S3.
 
 ## Repository structure
 
