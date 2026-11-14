@@ -5,6 +5,23 @@
 @media print{body{background:white;font-size:12px}.site-header,.hero-visual,.hero-socials,.hero-actions,.tool-strip,.architecture,.more-projects,footer,.menu-toggle{display:none!important}.hero,.section,.contact-section{padding:20px 0}.hero,.about-section,.skills-section,.featured-project{display:block}.hero h1{font-size:36px}.section,.project-card{break-inside:avoid}.contact-bottom{flex-wrap:wrap}.button{color:black;background:none;border:1px solid}.project-copy{padding:20px}.project-grid{gap:10px}h2{font-size:24px}}
 
 /* Resume detail */
+/* Official certification badges retain their original colors and proportions. */
+.certification-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.certification-card{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+.certification-card:hover{border-color:#9aa995;box-shadow:0 8px 24px #202b280a}
+.certification-art{display:grid;place-items:center;padding:30px;background:#eceee6;background-image:radial-gradient(#315c451c 1px,transparent 1px);background-size:16px 16px;border-bottom:1px solid var(--line)}
+.certification-art img{width:160px;height:160px;object-fit:contain}
+/* Crop the Terraform asset's wide empty margins so the badge matches its neighbors. */
+.certification-art .terraform-badge{object-fit:cover}
+.certification-copy{padding:26px;display:flex;flex-direction:column;flex:1;align-items:flex-start}
+.certification-copy>.tiny-label{color:var(--green);font-size:10px}
+.certification-copy h3{font-size:20px;line-height:1.4;letter-spacing:-.5px;margin:14px 0 10px}
+.certification-issuer{font-size:12px;color:var(--muted);margin:0}
+.certification-focus{font:400 9px/1.8 var(--mono);color:var(--green);margin:20px 0 24px}
+.certification-copy .text-link{margin-top:auto}
+@media screen and (max-width:1000px){.certification-copy{padding:20px}.certification-copy h3{font-size:18px}}
+@media screen and (max-width:700px){.certification-grid{grid-template-columns:1fr}.certification-art{padding:24px}.certification-copy{padding:26px}.certification-copy h3{font-size:22px}}
+@media print{.certification-card{break-inside:avoid}.certification-art{background:none;padding:12px}.certification-art img{width:100px;height:100px}.certification-copy{padding:16px}.certification-copy h3{font-size:16px}}
 .experience-row{align-items:start}
 .role-label,.company{padding-top:4px}
 .role-detail{min-width:0}
